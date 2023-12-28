@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glide__bullet--active {
+  @apply bg-gray-400;
+}
+.glide__bullet--active svg,
+.glide__bullet--active p {
+  @apply text-white;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run minify-css-dev",
+    "dev": "concurrently 'npm:minify-css-dev' 'npm:minify-js-dev'",
+    "build": "concurrently 'npm:minify-css-build' 'npm:minify-js-build'",
+    "watch": "node --watch ./src/index.js",
+    "minify-css-dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "minify-css-build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "minify-js-dev": "concurrently 'npm:watch' 'npm:minify-js-build'",
+    "minify-js-build": "uglifyjs ./src/index.js -o ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@glidejs/glide": "^3.6.0",
+    "@types/glidejs__glide": "^3.6.5",
+    "@types/jquery": "^3.5.29",
+    "concurrently": "^8.2.2",
+    "jquery": "^3.7.1",
+    "tailwindcss": "^3.4.0",
+    "uglify-js": "^3.17.4"
+  }
+}
